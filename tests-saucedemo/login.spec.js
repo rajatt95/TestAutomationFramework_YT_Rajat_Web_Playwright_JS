@@ -5,6 +5,7 @@ const { test, expect } = require('@playwright/test');
 import LoginPage from '../pages/LoginPage';
 import ProductsPage from '../pages/ProductsPage';
 import Components from '../pages/Components';
+import verificationManager from '../utils/VerificationManager';
 
 // Loading login credentials from JSON file
 const loginCredentials = require('../test-data/login_credentials.json');  
@@ -38,21 +39,21 @@ test.describe('Sauce Demo - [LOGIN]', () => {
   
     // Verify the heading on the Products page
     const productsPage = new ProductsPage(page)
-    await expect(await(productsPage.get_heading_products())).toHaveText('Products')
+    await verificationManager.elementHasText(productsPage.get_heading_products(), 'Products')
     
     // Verify the logo on the header
     const components = new Components(page)
-    await expect(await(components.get_header_logo_swag_labs())).toHaveText('Swag Labs')
+    await verificationManager.elementHasText(components.get_header_logo_swag_labs(), 'Swag Labs')
   
     // Verify the copyright message in the footer
-    await expect(await(components.get_footer_msg_copyright())).toContainText(' Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy')
-    
+    await verificationManager.elementContainsText(components.get_footer_msg_copyright(), ' Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy')
+        
     // Verify that LinkedIn link in the footer is present
-    await expect(await(components.get_footer_link_linkedin())).toBeVisible()
+    await verificationManager.elementIsVisible(components.get_footer_link_linkedin())
     
     // Verify the href attribute and value for the LinkedIn link in the footer
-    await expect(await(components.get_footer_link_linkedin())).toHaveAttribute('href', 'https://www.linkedin.com/company/sauce-labs/')
-    
+    await verificationManager.elementHasAttributeAndHasValue(components.get_footer_link_linkedin(), 'href', 'https://www.linkedin.com/company/sauce-labs/')    
+  
   });
   
   test('[LOGIN] Login with invalid credentials. Validate that User is unable to login using invalid credentials. @regression', async ({ page }) => {
@@ -62,8 +63,7 @@ test.describe('Sauce Demo - [LOGIN]', () => {
     await loginPage.loginToApplication(invalid_username, invalid_password)
   
     // Verify the error message for Username and Password not match with any User
-    await expect(await(loginPage.get_message_error_not_match())).toContainText('Username and password do not match')
-
+    await verificationManager.elementContainsText(loginPage.get_message_error_not_match(), 'Username and password do not match')
   });
     
 
