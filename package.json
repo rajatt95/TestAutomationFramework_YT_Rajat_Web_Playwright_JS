@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "This project is a Test Automation Framework built using Playwright and Javascript for automated testing of web applications.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "playwright:tests": "npx playwright test --headed"
+  },
   "keywords": [],
   "author": "Rajat Verma",
   "license": "ISC",
