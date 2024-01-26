@@ -1,7 +1,17 @@
+# Ignore macOS system file
 .DS_Store
 
+# Ignore node_modules directory
 node_modules/
+
+# Ignore test results
 /test-results/
+
+# Ignore Playwright report
 /playwright-report/
+
+# Ignore blob report
 /blob-report/
+
+# Ignore Playwright cache
 /playwright/.cache/

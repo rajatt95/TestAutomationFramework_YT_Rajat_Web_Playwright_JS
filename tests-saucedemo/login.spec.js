@@ -1,4 +1,4 @@
-// @ts-check
+// Importing necessary modules for Playwright test
 const { test, expect } = require('@playwright/test');
 
 // Importing page objects
@@ -22,13 +22,17 @@ const {
 test.describe('Sauce Demo - [LOGIN]', () => {
 
   /**
-   * Before each test, navigate to the homepage and create instances of Pages.
+   * Before each test, navigate to the application homepage.
    */
   test.beforeEach(async({ page }) =>{
     // Navigate to application
     await page.goto('/')  
   })
 
+  /**
+   * [LOGIN] Login with valid credentials. Validate that User is able to login using valid credentials.
+   * @tags {regression, sanity}
+   */
   test('[LOGIN] Login with valid credentials. Validate that User is able to login using valid credentials. @regression @sanity', async ({ page }) => {
    
     // Fill valid credentials and Login 
@@ -56,6 +60,10 @@ test.describe('Sauce Demo - [LOGIN]', () => {
   
   });
   
+  /**
+   * [LOGIN] Login with invalid credentials. Validate that User is unable to login using invalid credentials.
+   * @tags {regression}
+   */
   test('[LOGIN] Login with invalid credentials. Validate that User is unable to login using invalid credentials. @regression', async ({ page }) => {
       
     // Fill invalid credentials and Login 
