@@ -4,6 +4,7 @@ const { test, expect } = require('@playwright/test');
 // Importing page objects
 import LoginPage from '../pages/LoginPage';
 import ProductsPage from '../pages/ProductsPage';
+import Components from '../pages/Components';
 
 // Loading login credentials from JSON file
 const loginCredentials = require('../test-data/login_credentials.json');  
@@ -37,19 +38,20 @@ test.describe('Sauce Demo - [LOGIN]', () => {
   
     // Verify the heading on the Products page
     const productsPage = new ProductsPage(page)
-    expect(await(productsPage.get_heading_products())).toHaveText('Products')
+    await expect(await(productsPage.get_heading_products())).toHaveText('Products')
     
     // Verify the logo on the header
-    await expect(page.locator('.app_logo')).toHaveText('Swag Labs')
+    const components = new Components(page)
+    await expect(await(components.get_header_logo_swag_labs())).toHaveText('Swag Labs')
   
     // Verify the copyright message in the footer
-    await expect(page.locator('.footer_copy')).toContainText(' Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy')
-  
+    await expect(await(components.get_footer_msg_copyright())).toContainText(' Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy')
+    
     // Verify that LinkedIn link in the footer is present
-    await expect(page.getByRole('link', { name: 'LinkedIn' })).toBeVisible()
-  
+    await expect(await(components.get_footer_link_linkedin())).toBeVisible()
+    
     // Verify the href attribute and value for the LinkedIn link in the footer
-    await expect(page.getByRole('link', { name: 'LinkedIn' })).toHaveAttribute('href', 'https://www.linkedin.com/company/sauce-labs/')
+    await expect(await(components.get_footer_link_linkedin())).toHaveAttribute('href', 'https://www.linkedin.com/company/sauce-labs/')
     
   });
   
