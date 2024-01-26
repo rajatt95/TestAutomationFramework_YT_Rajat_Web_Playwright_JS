@@ -1,6 +1,10 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
 
+// Importing page objects
+import LoginPage from '../pages/LoginPage';
+import ProductsPage from '../pages/ProductsPage';
+
 // Loading login credentials from JSON file
 const loginCredentials = require('../test-data/login_credentials.json');  
 
@@ -26,14 +30,14 @@ test.describe('Sauce Demo - [LOGIN]', () => {
   test('[LOGIN] Login with valid credentials. Validate that User is able to login using valid credentials. @regression @sanity', async ({ page }) => {
    
     // Fill valid credentials and Login 
-    await page.locator('[data-test="username"]').fill(valid_username)
-    await page.locator('[data-test="password"]').fill(valid_password)
-    await page.locator('[data-test="login-button"]').click()
-  
+    const loginPage = new LoginPage(page)
+    await loginPage.loginToApplication(valid_username, valid_password)
+
     // Assertions for successful login
   
     // Verify the heading on the Products page
-    await expect(page.locator('.title')).toHaveText('Products')
+    const productsPage = new ProductsPage(page)
+    expect(await(productsPage.get_heading_products())).toHaveText('Products')
     
     // Verify the logo on the header
     await expect(page.locator('.app_logo')).toHaveText('Swag Labs')
@@ -52,13 +56,12 @@ test.describe('Sauce Demo - [LOGIN]', () => {
   test('[LOGIN] Login with invalid credentials. Validate that User is unable to login using invalid credentials. @regression', async ({ page }) => {
       
     // Fill invalid credentials and Login 
-    await page.locator('[data-test="username"]').fill(invalid_username)
-    await page.locator('[data-test="password"]').fill(invalid_password)
-    await page.locator('[data-test="login-button"]').click()
+    const loginPage = new LoginPage(page)
+    await loginPage.loginToApplication(invalid_username, invalid_password)
   
     // Verify the error message for Username and Password not match with any User
-    await expect(page.locator("//h3[contains(text(),'do not match')]")).toContainText('Username and password do not match')
-    
+    await expect(await(loginPage.get_message_error_not_match())).toContainText('Username and password do not match')
+
   });
     
 
