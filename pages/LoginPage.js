@@ -1,3 +1,5 @@
+import BasePage from "./BasePage"
+
 class LoginPage{
     
     // Elements
@@ -11,15 +13,10 @@ class LoginPage{
 
     // Operations/Methods
     async loginToApplication(username, password){
-
-        console.log('Filling ' + username + ' in Username textBox');
-        await this.textbox_username.fill(username);    
-
-        console.log('Filling ' + password + ' in Password textBox');
-        await this.textbox_password.fill(password);
-       
-        console.log('Clicking on Login button');
-        await this.button_login.click();
+        const basePage = new BasePage();
+        await basePage.fillTextBox(this.textbox_username, username, "Username")
+        await basePage.fillTextBox(this.textbox_password, password, "Password")
+        await basePage.clickOnWebElement(this.button_login, "Login button")
     }
 
 
