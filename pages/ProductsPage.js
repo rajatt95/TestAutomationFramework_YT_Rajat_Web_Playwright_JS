@@ -19,6 +19,7 @@ class ProductsPage{
     /**
      * Retrieves the heading element displaying products.
      * @returns {Locator} - The locator for the heading element.
+     * 
      * @example
      * const productsPage = new ProductsPage(page);
      * const headingLocator = await productsPage.get_heading_products();
