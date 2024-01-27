@@ -15,3 +15,6 @@ node_modules/
 
 # Ignore Playwright cache
 /playwright/.cache/
+
+# Ignore extras directory
+extras/
