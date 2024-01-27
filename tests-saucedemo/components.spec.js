@@ -32,13 +32,14 @@ test.describe('Sauce Demo - [COMPONENTS]', () => {
    
     // Verify the side-panel expand icon on the header
     const components = new Components(page)    
-    await verificationManager.elementIsVisible(components.get_side_panel_icon_expand())
+    await verificationManager.elementIsVisible(components.get_side_panel_icon_expand(), "Side-Panel: Expand Icon")
+
 
     // Verify the logo on the header
     await verificationManager.elementHasText(components.get_header_logo_swag_labs(), 'Swag Labs')
     
     // Verify the cart icon on the header
-    await verificationManager.elementIsVisible(components.get_header_icon_cart())
+    await verificationManager.elementIsVisible(components.get_header_icon_cart(), "Header: Cart icon")
       
   });  
   

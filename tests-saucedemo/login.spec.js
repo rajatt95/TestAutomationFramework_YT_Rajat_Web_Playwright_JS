@@ -53,10 +53,10 @@ test.describe('Sauce Demo - [LOGIN]', () => {
     await verificationManager.elementContainsText(components.get_footer_msg_copyright(), ' Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy')
         
     // Verify that LinkedIn link in the footer is present
-    await verificationManager.elementIsVisible(components.get_footer_link_linkedin())
+    await verificationManager.elementIsVisible(components.get_footer_link_linkedin(), "Footer: LinkedIn link")
     
     // Verify the href attribute and value for the LinkedIn link in the footer
-    await verificationManager.elementHasAttributeAndHasValue(components.get_footer_link_linkedin(), 'href', 'https://www.linkedin.com/company/sauce-labs/')    
+    await verificationManager.elementHasAttributeAndHasValue(components.get_footer_link_linkedin(), "Footer: LinkedIn link", 'href', 'https://www.linkedin.com/company/sauce-labs/')    
   
   });
   

@@ -37,19 +37,22 @@ class VerificationManager{
     /**
      * Asserts that an element is visible.
      * @param {ElementHandle} targetElement - The target element to check.
-     * 
+     * @param {string} targetElementName - The name or identifier of the target element.
+     *  
      * @example
      * // Example usage:
-     * await verificationManager.elementIsVisible(page.locator('#submit-button'));
+     * await verificationManager.elementIsVisible(page.locator('#submit-button'), 'Submit Button');
+     *
      */
-    async elementIsVisible(targetElement){
-        console.log("Asserts that an element is visible.")
+    async elementIsVisible(targetElement, targetElementName){
+        console.log(`Asserts that '${targetElementName}' is visible.`)
         expect(await (targetElement)).toBeVisible()
     }
 
     /**
      * Asserts that an element has a specific attribute with the expected value.
      * @param {ElementHandle} targetElement - The target element to check.
+     * @param {string} targetElementName - The name or identifier of the target element.
      * @param {string} attribute - The attribute to check.
      * @param {string} attributeValue - The expected value of the attribute.
      * 
@@ -57,12 +60,13 @@ class VerificationManager{
      * // Example usage:
      * await verificationManager.elementHasAttributeAndHasValue(
      *     page.locator('input[type="text"]'),
+     *     'Text Input',
      *     'placeholder',
      *     'Enter your name'
      * );
      */
-    async elementHasAttributeAndHasValue(targetElement, attribute, attributeValue){
-        console.log("Asserts that an element has a specific attribute with the expected value.")
+    async elementHasAttributeAndHasValue(targetElement, targetElementName, attribute, attributeValue){
+        console.log(`Asserts that '${targetElementName}' has a specific attribute '${attribute}' with the expected value '${attributeValue}'.`)
         expect(await (targetElement)).toHaveAttribute(attribute, attributeValue)
     }
 
