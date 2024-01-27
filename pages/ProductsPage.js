@@ -16,17 +16,6 @@ class ProductsPage{
     }
 
     // Operations/Methods
-    /**
-     * Retrieves the heading element displaying products.
-     * @returns {Locator} - The locator for the heading element.
-     * 
-     * @example
-     * const productsPage = new ProductsPage(page);
-     * const headingLocator = await productsPage.get_heading_products();
-     */
-    async get_heading_products(){
-        return this.heading_products;
-    }
 
 }
 

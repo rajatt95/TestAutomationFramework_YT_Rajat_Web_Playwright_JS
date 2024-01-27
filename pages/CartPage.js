@@ -16,18 +16,7 @@ class CartPage{
     }
 
     // Operations/Methods
-    /**
-     * Retrieves the heading element displaying your cart.
-     * @returns {Locator} - The locator for the heading element.
-     * 
-     * @example
-     * const cartPage = new CartPage(page);
-     * const headingLocator = await cartPage.get_heading_your_cart();
-     */
-    async get_heading_your_cart(){
-        return this.heading_your_cart;
-    }
-
+    
 }
 
 /**

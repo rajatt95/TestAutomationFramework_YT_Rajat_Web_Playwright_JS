@@ -43,20 +43,20 @@ test.describe('Sauce Demo - [LOGIN]', () => {
   
     // Verify the heading on the Products page
     const productsPage = new ProductsPage(page)
-    await verificationManager.elementHasText(productsPage.get_heading_products(), 'Products')
+    await verificationManager.elementHasText(productsPage.heading_products, 'Products')
     
     // Verify the logo on the header
     const components = new Components(page)
-    await verificationManager.elementHasText(components.get_header_logo_swag_labs(), 'Swag Labs')
+    await verificationManager.elementHasText(components.header_logo_swag_labs, 'Swag Labs')
   
     // Verify the copyright message in the footer
-    await verificationManager.elementContainsText(components.get_footer_msg_copyright(), ' Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy')
+    await verificationManager.elementContainsText(components.footer_msg_copyright, ' Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy')
         
     // Verify that LinkedIn link in the footer is present
-    await verificationManager.elementIsVisible(components.get_footer_link_linkedin(), "Footer: LinkedIn link")
+    await verificationManager.elementIsVisible(components.footer_link_linkedin, "Footer: LinkedIn link")
     
     // Verify the href attribute and value for the LinkedIn link in the footer
-    await verificationManager.elementHasAttributeAndHasValue(components.get_footer_link_linkedin(), "Footer: LinkedIn link", 'href', 'https://www.linkedin.com/company/sauce-labs/')    
+    await verificationManager.elementHasAttributeAndHasValue(components.footer_link_linkedin, "Footer: LinkedIn link", 'href', 'https://www.linkedin.com/company/sauce-labs/')    
   
   });
   
@@ -71,7 +71,7 @@ test.describe('Sauce Demo - [LOGIN]', () => {
     await loginPage.loginToApplication(invalid_username, invalid_password)
   
     // Verify the error message for Username and Password not match with any User
-    await verificationManager.elementContainsText(loginPage.get_message_error_not_match(), 'Username and password do not match')
+    await verificationManager.elementContainsText(loginPage.message_error_not_match, 'Username and password do not match')
   });
     
 

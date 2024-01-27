@@ -63,19 +63,6 @@ class LoginPage{
       
     }
 
-
-    /**
-     * Retrieves the error message for password and username mismatch.
-     * @returns {Locator} - The locator for the error message element.
-     * 
-     * @example
-     * const loginPage = new LoginPage(page);
-     * const errorMessageLocator = await loginPage.get_message_error_not_match();
-     */
-    async get_message_error_not_match(){
-        return this.message_error_not_match;
-    }
-
 }
 
 /**
