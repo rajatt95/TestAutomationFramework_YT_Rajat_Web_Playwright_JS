@@ -1,8 +1,8 @@
 // Importing necessary modules for Playwright test
-import {expect } from '@playwright/test';
+import { expect } from '@playwright/test';
 
 /**
- * VerificationManager class provides methods for asserting different conditions on web elements.
+ * VerificationManager class provides methods for asserting different conditions.
  */
 class VerificationManager{
 
@@ -10,38 +10,41 @@ class VerificationManager{
      * Asserts that an element contains the expected text.
      * @param {ElementHandle} targetElement - The target element to check.
      * @param {string} expectedText - The expected text to be contained in the element.
+     * 
      * @example
      * // Example usage:
      * await verificationManager.elementContainsText(page.locator('h1'), 'Hello, World!');
      */
     async elementContainsText(targetElement, expectedText){
-        console.log("Asserts that an element contains the expected text.")
-        await expect(await (targetElement)).toContainText(expectedText)   
+        console.log(`Asserts that an element contains the expected text '${expectedText}'.`)
+        expect(await (targetElement)).toContainText(expectedText)   
     }
 
     /**
      * Asserts that an element has the expected text.
      * @param {ElementHandle} targetElement - The target element to check.
      * @param {string} expectedText - The expected text of the element.
+     * 
      * @example
      * // Example usage:
      * await verificationManager.elementHasText(page.locator('p'), 'This is a paragraph.');
      */
     async elementHasText(targetElement, expectedText){
-        console.log("Asserts that an element has the expected text.")
-        await expect(await (targetElement)).toHaveText(expectedText)
+        console.log(`Asserts that an element has the expected text '${expectedText}'.`)
+        expect(await (targetElement)).toHaveText(expectedText)
     }
 
     /**
      * Asserts that an element is visible.
      * @param {ElementHandle} targetElement - The target element to check.
+     * 
      * @example
      * // Example usage:
      * await verificationManager.elementIsVisible(page.locator('#submit-button'));
      */
     async elementIsVisible(targetElement){
         console.log("Asserts that an element is visible.")
-        await expect(await (targetElement)).toBeVisible()
+        expect(await (targetElement)).toBeVisible()
     }
 
     /**
@@ -49,6 +52,7 @@ class VerificationManager{
      * @param {ElementHandle} targetElement - The target element to check.
      * @param {string} attribute - The attribute to check.
      * @param {string} attributeValue - The expected value of the attribute.
+     * 
      *  * @example
      * // Example usage:
      * await verificationManager.elementHasAttributeAndHasValue(
@@ -59,7 +63,69 @@ class VerificationManager{
      */
     async elementHasAttributeAndHasValue(targetElement, attribute, attributeValue){
         console.log("Asserts that an element has a specific attribute with the expected value.")
-        await expect(await (targetElement)).toHaveAttribute(attribute, attributeValue)
+        expect(await (targetElement)).toHaveAttribute(attribute, attributeValue)
+    }
+
+    /**
+     * Asserts that the current page URL contains the expected substring.
+     * @param {Page} page - The Playwright page object.
+     * @param {string} expectedUrl - The substring to check for in the page URL.
+     * @returns {Promise<void>} - A Promise that resolves when the assertion is complete.
+     * 
+     * @example
+     * // Example usage:
+     * await verificationManager.pageContainsUrl(page, 'example');
+     */
+    async pageContainsUrl(page, expectedUrl){    
+        const currentPageTitle = await page.url()       
+        console.log(`Asserts that the current page URL '${currentPageTitle}' contains the expected substring '${expectedUrl}'.`)
+        expect(currentPageTitle).toContain(expectedUrl);
+    }
+
+    /**
+     * Asserts that the current page URL matches the expected URL.
+     * @param {Page} page - The Playwright page object.
+     * @param {string} expectedUrl - The expected URL to match.
+     * @returns {Promise<void>} - A Promise that resolves when the assertion is complete.
+     *
+     * @example
+     * // Example usage:
+     * await verificationManager.pageHasUrl(page, 'https://example.com');
+     */
+    async pageHasUrl(page, expectedUrl){
+        console.log(`Asserts that the current page URL matches the expected substring '${expectedUrl}'.`)
+        expect(page).toHaveURL(expectedUrl)
+    }   
+
+    /**
+     * Asserts that the current page Title contains the expected substring.
+     * @param {Page} page - The Playwright page object.
+     * @param {string} expectedTitle - The expected substring to check for in the page title.
+     * @returns {Promise<void>} - A Promise that resolves when the assertion is complete.
+     *
+     * @example
+     * // Example usage:
+     * await verificationManager.pageContainsTitle(page, 'Example Title');
+     */
+    async pageContainsTitle(page, expectedTitle){    
+        const currentPageTitle = await page.title()    
+        console.log(`Asserts that the current page Title '${currentPageTitle}' contains the expected substring '${expectedTitle}'.`)
+        expect(currentPageTitle).toContain(expectedTitle);
+    }
+
+    /**
+     * Asserts that the current page Title matches the expected substring.
+     * @param {Page} page - The Playwright page object.
+     * @param {string} expectedTitle - The expected substring to match with the page title.
+     * @returns {Promise<void>} - A Promise that resolves when the assertion is complete.
+     *
+     * @example
+     * // Example usage:
+     * await verificationManager.pageHasTitle(page, 'Example Title');
+     */
+    async pageHasTitle(page, expectedTitle){        
+        console.log(`Asserts that the current page Title matches the expected substring '${expectedTitle}'.`)
+        expect(page).toHaveTitle(expectedTitle)
     }
 
 }

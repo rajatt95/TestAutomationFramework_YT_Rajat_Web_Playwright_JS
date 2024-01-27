@@ -10,6 +10,7 @@ class BasePage{
      * @param {ElementHandle} element - The web element to click on.
      * @param {string} elementName - The name or description of the web element.
      * @returns {Promise<void>} - A Promise that resolves when the click operation is completed.
+     * 
      * @example
      * const basePage = new BasePage();
      * const submitButton = //... obtain the ElementHandle for the submit button.
@@ -26,6 +27,7 @@ class BasePage{
      * @param {string} value - The value to fill in the text box.
      * @param {string} textbox_name - The name or description of the text box.
      * @returns {Promise<void>} - A Promise that resolves when the fill operation is completed.
+     * 
      * @example
      * const basePage = new BasePage();
      * const usernameInput = //... obtain the ElementHandle for the username input.

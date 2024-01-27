@@ -1,5 +1,5 @@
 // Importing necessary modules for Playwright test
-const { test, expect } = require('@playwright/test');
+const { test } = require('@playwright/test');
 
 // Importing page objects
 import LoginPage from '../pages/LoginPage';
