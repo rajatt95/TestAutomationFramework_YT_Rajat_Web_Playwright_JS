@@ -11,7 +11,7 @@ import verificationManager from '../utils/VerificationManager';
 /**
  * Test suite for Sauce Demo Application Components.
  */
-test.describe('Sauce Demo - [COMPONENTS]', () => {
+test.describe('[Components]', () => {
 
   /**
    * Before each test, navigate to the application homepage and login.
@@ -25,10 +25,10 @@ test.describe('Sauce Demo - [COMPONENTS]', () => {
   })
 
   /**
-   * [Components > Header] Static Messages. Validate that User is able to see messages in Header component.
+   * Test case: [Header] Static Messages. Validate that User is able to see messages in Header component.
    * @tags {regression, sanity}
    */
-  test('[Components > Header] Static Messages. Validate that User is able to see messages in Header component. @regression @sanity', async ({ page }) => {
+  test('[Header] Static Messages. Validate that User is able to see messages in Header component. @regression @sanity', async ({ page }) => {
    
     // Verify the side-panel expand icon on the header
     const components = new Components(page)    
@@ -44,10 +44,10 @@ test.describe('Sauce Demo - [COMPONENTS]', () => {
   
   
   /**
-   * [Components > Header] Navigate to Cart Page. Validate that User is able to navigate to Cart Page using Cart icon.
+   * Test case: [Header] Navigate to Cart Page. Validate that User is able to navigate to Cart Page using Cart icon.
    * @tags {regression}
    */
-  test('[Components > Header] Navigate to Cart Page. Validate that User is able to navigate to Cart Page using Cart icon. @regression', async ({ page }) => {
+  test('[Header] Navigate to Cart Page. Validate that User is able to navigate to Cart Page using Cart icon. @regression', async ({ page }) => {
    
     // Click on Cart icon
     const components = new Components(page)
@@ -67,6 +67,40 @@ test.describe('Sauce Demo - [COMPONENTS]', () => {
     await verificationManager.pageHasTitle(page, 'Swag Labs')    
 
   });  
+
+
+  /**
+   * Test case: [Footer] Static Messages. Validate that User is able to see messages in Footer component.
+   * @tags {regression, sanity}
+   */
+  test('[Footer] Static Messages. Validate that User is able to see messages in Footer component. @regression @sanity', async ({ page }) => {
+   
+    // Verify the social links icon
+    const components = new Components(page)    
+    await verificationManager.elementIsVisible(components.footer_link_twitter, "Footer: Twitter link")
+    await verificationManager.elementIsVisible(components.footer_link_facebook, "Footer: Facebook link")
+    await verificationManager.elementIsVisible(components.footer_link_linkedin, "Footer: LinkedIn link")
+
+    // Verify the copyright message 
+    await verificationManager.elementContainsText(components.footer_msg_copyright, '© 2024 Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy')
+      
+  });  
+  
+
+  /**
+   * Test case: [Footer] Links navigation. Validate that User is able to navigate to social platforms using icons.
+   * @tags {regression}
+   */
+  test('[Footer] Links navigation. Validate that User is able to navigate to social platforms using icons. @regression', async ({ page }) => {
+   
+    // Verify the social links
+    const components = new Components(page)    
+    await verificationManager.elementHasAttributeAndHasValue(components.footer_link_twitter, "Footer: Twitter link", "href","https://twitter.com/saucelabs")
+    await verificationManager.elementHasAttributeAndHasValue(components.footer_link_facebook, "Footer: Facebook link", "href","https://www.facebook.com/saucelabs")
+    await verificationManager.elementHasAttributeAndHasValue(components.footer_link_linkedin, "Footer: LinkedIn link", "href","https://www.linkedin.com/company/sauce-labs/")
+      
+  });  
+
 
 });
 

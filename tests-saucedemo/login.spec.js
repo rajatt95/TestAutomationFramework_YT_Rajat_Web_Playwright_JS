@@ -19,7 +19,7 @@ const {
 /**
  * Test suite for Sauce Demo login functionality.
  */
-test.describe('Sauce Demo - [LOGIN]', () => {
+test.describe('[Login]', () => {
 
   /**
    * Before each test, navigate to the application homepage.
@@ -30,10 +30,10 @@ test.describe('Sauce Demo - [LOGIN]', () => {
   })
 
   /**
-   * [LOGIN] Login with valid credentials. Validate that User is able to login using valid credentials.
+   * Test case: Login with valid credentials. Validate that User is able to login using valid credentials.
    * @tags {regression, sanity}
    */
-  test('[LOGIN] Login with valid credentials. Validate that User is able to login using valid credentials. @regression @sanity', async ({ page }) => {
+  test('Login with valid credentials. Validate that User is able to login using valid credentials. @regression @sanity', async ({ page }) => {
    
     // Fill valid credentials and Login 
     const loginPage = new LoginPage(page)
@@ -61,10 +61,10 @@ test.describe('Sauce Demo - [LOGIN]', () => {
   });
   
   /**
-   * [LOGIN] Login with invalid credentials. Validate that User is unable to login using invalid credentials.
+   * Test case: Login with invalid credentials. Validate that User is unable to login using invalid credentials.
    * @tags {regression}
    */
-  test('[LOGIN] Login with invalid credentials. Validate that User is unable to login using invalid credentials. @regression', async ({ page }) => {
+  test('Login with invalid credentials. Validate that User is unable to login using invalid credentials. @regression', async ({ page }) => {
       
     // Fill invalid credentials and Login 
     const loginPage = new LoginPage(page)

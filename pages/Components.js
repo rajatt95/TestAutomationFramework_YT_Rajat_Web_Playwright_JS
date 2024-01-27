@@ -26,6 +26,8 @@ class Components{
         // Footer
         this.footer_msg_copyright = page.locator('.footer_copy')
         this.footer_link_linkedin = page.getByRole('link', { name: 'LinkedIn' })
+        this.footer_link_twitter = page.getByRole('link', { name: 'Twitter' })
+        this.footer_link_facebook = page.getByRole('link', { name: 'Facebook' })
 
         // Side-Panel
         this.side_panel_icon_expand = page.locator('#react-burger-menu-btn')
@@ -44,14 +46,12 @@ class Components{
      * await components.click_header_icon_cart();
      */
     async click_header_icon_cart(){
-        await basePage.clickOnWebElement(this.header_icon_cart, "Cart icon")
+        await basePage.clickOnWebElement(this.header_icon_cart, "Header: Cart icon")
     }
-
-    
 
 
     // Footer
-
+    
 
     // Side-Panel
 
