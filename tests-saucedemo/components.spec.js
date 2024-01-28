@@ -5,7 +5,10 @@ const { test } = require('@playwright/test');
 import LoginPage from '../pages/LoginPage';
 import CartPage from '../pages/CartPage';
 import Components from '../pages/Components';
+
+// Importing utilities
 import verificationManager from '../utils/VerificationManager';
+import waits from '../utils/Waits';
 
 
 /**
@@ -101,6 +104,66 @@ test.describe('[Components]', () => {
       
   });  
 
+
+  /**
+   * Test case: [Side-Panel] Static Messages. Validate that User is able to see messages in Side-Panel component.
+   * @tags {regression, sanity}
+   */
+  test('[Side-Panel] Static Messages. Validate that User is able to see messages in Side-Panel component. @regression @sanity', async ({ page }) => {
+   
+    // Open Side-Panel
+    const components = new Components(page)    
+    await components.click_side_panel_icon_expand()
+
+    // Verify Links in Side-Panel
+    await verificationManager.elementHasText(components.side_panel_link_allItems, "All Items")
+    await verificationManager.elementHasText(components.side_panel_link_about, "About")
+    await verificationManager.elementHasText(components.side_panel_link_logout, "Logout")
+    await verificationManager.elementHasText(components.side_panel_link_resetAppState, "Reset App State")
+      
+    await verificationManager.elementIsVisible(components.side_panel_icon_cross, "Side-Panel: Cross link")
+          
+  });  
+
+  /**
+   * Test case: [Side-Panel] Panel Expand/Collapse. Validate that User is able to expand/collapse panel using icons.
+   * @tags {regression}
+   */
+  test('[Side-Panel] Panel Expand/Collapse. Validate that User is able to expand/collapse panel using icons. @regression', async ({ page }) => {
+  
+    // Open Side-Panel
+    const components = new Components(page)    
+    await components.click_side_panel_icon_expand()
+    await waits.waitForGivenTime(2) // Added to verify that utility is working as expected
+    // await verificationManager.elementIsNotVisible(components.side_panel_icon_expand, "Side-Panel: Expand icon")
+    await verificationManager.elementIsVisible(components.side_panel_icon_cross, "Side-Panel: Cross icon")
+
+    // Close Side-Panel
+    await components.click_side_panel_icon_cross()
+    await verificationManager.elementIsVisible(components.side_panel_icon_expand, "Side-Panel: Expand icon")
+    // await verificationManager.elementIsNotVisible(components.side_panel_icon_cross, "Side-Panel: Cross icon")
+          
+  });  
+  
+
+  /**
+   * Test case: [Side-Panel] Link: About. Validate that User is able to navigate to official website using About link.
+   * @tags {regression}
+   */
+  test('[Side-Panel] Link: About. Validate that User is able to navigate to official website using About link. @regression', async ({ page }) => {
+  
+    // Open Side-Panel
+    const components = new Components(page)    
+    await components.click_side_panel_icon_expand()
+
+    // Verify About Link in Side-Panel
+    await components.click_side_panel_link_about()
+    
+    // VerifY Page URL and Title
+    await verificationManager.pageHasTitle(page, 'Sauce Labs: Cross Browser Testing, Selenium Testing & Mobile Testing')
+    await verificationManager.pageHasUrl(page, 'https://saucelabs.com/') 
+
+  });  
 
 });
 

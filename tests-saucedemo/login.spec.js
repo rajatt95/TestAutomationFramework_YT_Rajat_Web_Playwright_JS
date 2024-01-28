@@ -5,6 +5,8 @@ const { test } = require('@playwright/test');
 import LoginPage from '../pages/LoginPage';
 import ProductsPage from '../pages/ProductsPage';
 import Components from '../pages/Components';
+
+// Importing utilities
 import verificationManager from '../utils/VerificationManager';
 
 // Loading login credentials from JSON file

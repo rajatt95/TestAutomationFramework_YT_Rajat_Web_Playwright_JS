@@ -32,6 +32,12 @@ class Components{
         // Side-Panel
         this.side_panel_icon_expand = page.locator('#react-burger-menu-btn')
         this.side_panel_icon_cross = page.locator('#react-burger-cross-btn')
+
+        this.side_panel_link_allItems = page.locator('#inventory_sidebar_link')
+        this.side_panel_link_about = page.locator('#about_sidebar_link')
+        this.side_panel_link_logout = page.locator('#logout_sidebar_link')
+        this.side_panel_link_resetAppState = page.locator('#reset_sidebar_link')
+        
     }
 
     // Operations/Methods
@@ -54,6 +60,42 @@ class Components{
     
 
     // Side-Panel
+
+    /**
+     * Clicks on the expand icon in the side-panel.
+     * 
+     * @example
+     * const components = new Components(page);
+     * await components.click_side_panel_icon_expand();
+     */
+    async click_side_panel_icon_expand(){
+        await basePage.clickOnWebElement(this.side_panel_icon_expand, "Side-Panel: Expand icon")
+    }
+
+    /**
+     * Clicks on the cross icon in the side-panel.
+     * 
+     * @example
+     * const components = new Components(page);
+     * await components.click_side_panel_icon_cross();
+     */
+    async click_side_panel_icon_cross(){
+        await basePage.clickOnWebElement(this.side_panel_icon_cross, "Side-Panel: Expand icon")
+    }
+
+    /**
+     * Clicks on the about link in the side-panel.
+     * 
+     * @example
+     * const components = new Components(page);
+     * await components.click_side_panel_link_about();
+     */
+    async click_side_panel_link_about(){
+        await basePage.clickOnWebElement(this.side_panel_link_about, "Side-Panel: About link")
+    }
+
+
+    
 
 
 }
