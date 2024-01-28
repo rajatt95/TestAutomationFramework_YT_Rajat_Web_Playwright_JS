@@ -2,9 +2,9 @@
 import { expect } from '@playwright/test';
 
 /**
- * VerificationManager class provides methods for asserting different conditions.
+ * VerificationUtils class provides methods for asserting different conditions.
  */
-class VerificationManager{
+class VerificationUtils{
 
     /**
      * Asserts that an element contains the expected text.
@@ -13,7 +13,7 @@ class VerificationManager{
      * 
      * @example
      * // Example usage:
-     * await verificationManager.elementContainsText(page.locator('h1'), 'Hello, World!');
+     * await verificationUtils.elementContainsText(page.locator('h1'), 'Hello, World!');
      */
     async elementContainsText(targetElement, expectedText){
         console.log(`Asserts that an element contains the expected text '${expectedText}'.`)
@@ -27,7 +27,7 @@ class VerificationManager{
      * 
      * @example
      * // Example usage:
-     * await verificationManager.elementHasText(page.locator('p'), 'This is a paragraph.');
+     * await verificationUtils.elementHasText(page.locator('p'), 'This is a paragraph.');
      */
     async elementHasText(targetElement, expectedText){
         console.log(`Asserts that an element has the expected text '${expectedText}'.`)
@@ -41,7 +41,7 @@ class VerificationManager{
      *  
      * @example
      * // Example usage:
-     * await verificationManager.elementIsVisible(page.locator('#submit-button'), 'Submit Button');
+     * await verificationUtils.elementIsVisible(page.locator('#submit-button'), 'Submit Button');
      *
      */
     async elementIsVisible(targetElement, targetElementName){
@@ -56,7 +56,7 @@ class VerificationManager{
      *  
      * @example
      * // Example usage:
-     * await verificationManager.elementIsNotVisible(page.locator('#submit-button'), 'Submit Button');
+     * await verificationUtils.elementIsNotVisible(page.locator('#submit-button'), 'Submit Button');
      *
      */
     async elementIsNotVisible(targetElement, targetElementName){
@@ -72,7 +72,7 @@ class VerificationManager{
      *  
      * @example
      * // Example usage:
-     * await verificationManager.elementsCount(page.locator('#submit-button'), 'Submit Button', 2);
+     * await verificationUtils.elementsCount(page.locator('#submit-button'), 'Submit Button', 2);
      *
      */
     async elementsCount(targetElement, targetElementName, expectedCount){
@@ -94,7 +94,7 @@ class VerificationManager{
      * 
      *  * @example
      * // Example usage:
-     * await verificationManager.elementHasAttributeAndHasValue(
+     * await verificationUtils.elementHasAttributeAndHasValue(
      *     page.locator('input[type="text"]'),
      *     'Text Input',
      *     'placeholder',
@@ -114,7 +114,7 @@ class VerificationManager{
      * 
      * @example
      * // Example usage:
-     * await verificationManager.pageContainsUrl(page, 'example');
+     * await verificationUtils.pageContainsUrl(page, 'example');
      */
     async pageContainsUrl(page, expectedUrl){    
         const currentPageTitle = await page.url()       
@@ -130,7 +130,7 @@ class VerificationManager{
      *
      * @example
      * // Example usage:
-     * await verificationManager.pageHasUrl(page, 'https://example.com');
+     * await verificationUtils.pageHasUrl(page, 'https://example.com');
      */
     async pageHasUrl(page, expectedUrl){
         console.log(`Asserts that the current page URL matches the expected substring '${expectedUrl}'.`)
@@ -145,7 +145,7 @@ class VerificationManager{
      *
      * @example
      * // Example usage:
-     * await verificationManager.pageContainsTitle(page, 'Example Title');
+     * await verificationUtils.pageContainsTitle(page, 'Example Title');
      */
     async pageContainsTitle(page, expectedTitle){    
         const currentPageTitle = await page.title()    
@@ -161,7 +161,7 @@ class VerificationManager{
      *
      * @example
      * // Example usage:
-     * await verificationManager.pageHasTitle(page, 'Example Title');
+     * await verificationUtils.pageHasTitle(page, 'Example Title');
      */
     async pageHasTitle(page, expectedTitle){        
         console.log(`Asserts that the current page Title matches the expected substring '${expectedTitle}'.`)
@@ -172,7 +172,7 @@ class VerificationManager{
 
 
 /**
- * Exports the VerificationManager class as the default export of this module.
- * @module VerificationManager
+ * Exports the VerificationUtils class as the default export of this module.
+ * @module VerificationUtils
  */
-export default new VerificationManager;
+export default new VerificationUtils;

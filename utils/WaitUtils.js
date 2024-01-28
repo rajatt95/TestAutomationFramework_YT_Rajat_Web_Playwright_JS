@@ -1,4 +1,4 @@
-class Waits{
+class WaitUtils{
 
 
     /**
@@ -8,7 +8,7 @@ class Waits{
      *
      * @example
      * // Example usage:
-     * await verificationManager.waitForGivenTime(5);
+     * await verificationUtils.waitForGivenTime(5);
      */
     async waitForGivenTime(timeInSeconds){
         console.log(`Waiting for '${timeInSeconds}' seconds.`)
@@ -19,6 +19,6 @@ class Waits{
 
 /**
  * Exports the Waits class as the default export of this module.
- * @module Waits
+ * @module WaitUtils
  */
-export default new Waits;
+export default new WaitUtils;

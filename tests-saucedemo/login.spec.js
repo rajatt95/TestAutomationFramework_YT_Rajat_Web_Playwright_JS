@@ -7,7 +7,7 @@ import ProductsPage from '../pages/ProductsPage';
 import Components from '../pages/Components';
 
 // Importing utilities
-import verificationManager from '../utils/VerificationManager';
+import verificationUtils from '../utils/VerificationUtils';
 
 // Loading login credentials from JSON file
 const loginCredentials = require('../test-data/login_credentials.json');  
@@ -45,20 +45,20 @@ test.describe('[Login]', () => {
   
     // Verify the heading on the Products page
     const productsPage = new ProductsPage(page)
-    await verificationManager.elementHasText(productsPage.heading_products, 'Products')
+    await verificationUtils.elementHasText(productsPage.heading_products, 'Products')
     
     // Verify the logo on the header
     const components = new Components(page)
-    await verificationManager.elementHasText(components.header_logo_swag_labs, 'Swag Labs')
+    await verificationUtils.elementHasText(components.header_logo_swag_labs, 'Swag Labs')
   
     // Verify the copyright message in the footer
-    await verificationManager.elementContainsText(components.footer_msg_copyright, ' Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy')
+    await verificationUtils.elementContainsText(components.footer_msg_copyright, ' Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy')
         
     // Verify that LinkedIn link in the footer is present
-    await verificationManager.elementIsVisible(components.footer_link_linkedin, "Footer: LinkedIn link")
+    await verificationUtils.elementIsVisible(components.footer_link_linkedin, "Footer: LinkedIn link")
     
     // Verify the href attribute and value for the LinkedIn link in the footer
-    await verificationManager.elementHasAttributeAndHasValue(components.footer_link_linkedin, "Footer: LinkedIn link", 'href', 'https://www.linkedin.com/company/sauce-labs/')    
+    await verificationUtils.elementHasAttributeAndHasValue(components.footer_link_linkedin, "Footer: LinkedIn link", 'href', 'https://www.linkedin.com/company/sauce-labs/')    
   
   });
   
@@ -73,7 +73,7 @@ test.describe('[Login]', () => {
     await loginPage.loginToApplication(invalid_username, invalid_password)
   
     // Verify the error message for Username and Password not match with any User
-    await verificationManager.elementContainsText(loginPage.message_error_not_match, 'Username and password do not match')
+    await verificationUtils.elementContainsText(loginPage.message_error_not_match, 'Username and password do not match')
   });
     
 
