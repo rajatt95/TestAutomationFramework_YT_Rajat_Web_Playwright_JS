@@ -138,10 +138,10 @@ The tests follow a modular and maintainable structure:
 ```
 
 - `pages`: Contains the Page Object Model (POM) classes representing web pages and their elements.
-- `playwright-report`: Contains the HTML report for tests.
-- `test-data`: Contains external fixtures (e.g., login credentials data) that can be used to mock data during tests.
+- `playwright-report`: Contains the HTML report for tests (Logs, Screenshots, Traces and Videos are attached).
+- `test-data`: Contains external files (example: login credentials data) that can be used to mock data during tests.
 - `tests-saucedemo`: Contains the actual test files. You can organize your tests into subdirectories as needed. 
-- `utils`: Contains the Utility that provides methods for asserting different conditions on web elements.
+- `utils`: Contains the Utilities that provides methods for asserting different conditions on web elements, waits.
 
 ## ⚙️ Configuration
 
@@ -156,14 +156,22 @@ The tests follow a modular and maintainable structure:
 
 ## 🔄 Continuous Integration
 
-This project is configured for CI using Github Actions. Check the configurations in `.github/workflows/*.yml`
-- `01_ui_tests_chrome.yml`: This workflow will execute tests in Chrome browser.
-- `02_ui_tests_select_one.yml`: This workflow will ask User to select the browser for tests execution.
-- `03_ui_tests_ALL.yml`: This workflow will execute the tests all browsers (CHROME, EDGE, WEBKIT, CHROMIUM, FIREFOX)
+This project is configured for CI using Github Actions. Check the configurations in `.github/workflows/*.yml`.
+
+- `01_ui_tests_chrome.yml`: This workflow executes tests in Chrome browser.
+
+- `02_ui_tests_select_one.yml`: This workflow will first ask User to select the browser for tests execution.
+
+- `03_ui_tests_ALL.yml`: This workflow executes the tests in all browsers <!-- #(CHROME, EDGE, WEBKIT, CHROMIUM, FIREFOX) -->
+
+  [![Chrome](https://img.shields.io/badge/Chrome-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)](https://www.google.com/chrome/)
+  [![Edge](https://img.shields.io/badge/Edge-0078D7?style=for-the-badge&logo=microsoft-edge&logoColor=white)](https://www.microsoft.com/edge/)[![Firefox](https://img.shields.io/badge/Firefox-FF7139?style=for-the-badge&logo=firefox&logoColor=white)](https://www.mozilla.org/firefox/)
+  [![WebKit](https://img.shields.io/badge/WebKit-689F63?style=for-the-badge&logo=webkit&logoColor=white)](https://webkit.org/)
+  [![Chromium](https://img.shields.io/badge/Chromium-4A90E2?style=for-the-badge&logo=chromium&logoColor=white)](https://www.chromium.org/Home)
 
 ## 📊 Reporting
 
-Playwright HTML report (Screenshots,Traces and Videos are attached) is stored in the `playwright-report` directory.
+Playwright HTML report (Logs, Screenshots, Traces and Videos are attached) is stored in the `playwright-report` directory.
 
 ## 🔭 Other Projects
 
