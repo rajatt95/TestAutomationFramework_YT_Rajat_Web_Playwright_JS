@@ -38,6 +38,23 @@ class BasePage{
         await element.fill(value);
     }
 
+    /**
+     * Mouse hover on a web element.
+     *
+     * @param {ElementHandle} element - The web element to hover over.
+     * @param {string} elementName - The name or description of the web element.
+     * @returns {Promise<void>} - A Promise that resolves when the hover operation is completed.
+     * 
+     * @example
+     * const basePage = new BasePage();
+     * const someElement = //... obtain the ElementHandle for some element.
+     * await basePage.mouseHoverOnWebElement(someElement, 'Some Element');
+     */
+    async mouseHoverOnWebElement(element, elementName){
+        console.log(`Mouse Hover on '${elementName}'.`);
+        await element.hover()
+    }
+
 }
 
 /**
