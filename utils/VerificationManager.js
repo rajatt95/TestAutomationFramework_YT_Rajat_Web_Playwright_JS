@@ -50,6 +50,21 @@ class VerificationManager{
     }
 
     /**
+     * Asserts that an element is not visible.
+     * @param {ElementHandle} targetElement - The target element to check.
+     * @param {string} targetElementName - The name or identifier of the target element.
+     *  
+     * @example
+     * // Example usage:
+     * await verificationManager.elementIsNotVisible(page.locator('#submit-button'), 'Submit Button');
+     *
+     */
+    async elementIsNotVisible(targetElement, targetElementName){
+        console.log(`Asserts that '${targetElementName}' is not visible.`)
+        expect(await (targetElement)).toBeHidden()
+    }
+
+    /**
      * Asserts that an element has a specific attribute with the expected value.
      * @param {ElementHandle} targetElement - The target element to check.
      * @param {string} targetElementName - The name or identifier of the target element.
