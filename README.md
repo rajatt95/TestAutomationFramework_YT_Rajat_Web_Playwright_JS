@@ -120,16 +120,18 @@ The tests follow a modular and maintainable structure:
 |          |-- 03_ui_tests_ALL.yml
 |-- pages
 |     |-- BasePage.js
+|     |-- CartPage.js
 |     |-- Components.js
 |     |-- LoginPage.js
 |     |-- ProductsPage.js
-|-- playwright-report
 |-- test-data
 |     |-- login_credentials.json
 |-- tests-saucedemo
+|     |-- components.spec.js
 |     |-- login.spec.js
 |-- utils
-|     |-- VerificationManager.js
+|     |-- VerificationUtils.js
+|     |-- WaitUtils.js
 |-- .gitignore
 |-- package.json
 |-- playwright.config.js

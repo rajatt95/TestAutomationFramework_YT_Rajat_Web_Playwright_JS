@@ -18,3 +18,7 @@ node_modules/
 
 # Ignore extras directory
 extras/
+
+# Ignore test files
+pages/TestPage.*
+tests-saucedemo/test.*
