@@ -33,10 +33,12 @@ class Components{
         this.side_panel_icon_expand = page.locator('#react-burger-menu-btn')
         this.side_panel_icon_cross = page.locator('#react-burger-cross-btn')
 
+        this.side_panel_links = page.locator("//*[contains(@id,'sidebar_link')]")
         this.side_panel_link_allItems = page.locator('#inventory_sidebar_link')
         this.side_panel_link_about = page.locator('#about_sidebar_link')
         this.side_panel_link_logout = page.locator('#logout_sidebar_link')
         this.side_panel_link_resetAppState = page.locator('#reset_sidebar_link')
+        
         
     }
 

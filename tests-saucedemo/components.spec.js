@@ -121,6 +121,8 @@ test.describe('[Components]', () => {
     await verificationManager.elementHasText(components.side_panel_link_logout, "Logout")
     await verificationManager.elementHasText(components.side_panel_link_resetAppState, "Reset App State")
       
+    await verificationManager.elementsCount(components.side_panel_links, "Side-Panel links", 4)
+    
     await verificationManager.elementIsVisible(components.side_panel_icon_cross, "Side-Panel: Cross link")
           
   });  
