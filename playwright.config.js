@@ -12,8 +12,11 @@ const { on } = require('events');
  * @see https://playwright.dev/docs/test-configuration
  */
 module.exports = defineConfig({
+  
   // testDir: './tests',
   testDir: './tests-saucedemo',
+
+  timeout: 60000, // Set the timeout to 60 seconds (in milliseconds)
 
   /* Run tests in files in parallel */
   fullyParallel: true,
