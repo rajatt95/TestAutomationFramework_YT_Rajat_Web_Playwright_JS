@@ -8,7 +8,7 @@ class WaitUtils{
      *
      * @example
      * // Example usage:
-     * await verificationUtils.waitForGivenTime(5);
+     * await waitUtils.waitForGivenTime(5);
      */
     async waitForGivenTime(timeInSeconds){
         console.log(`Waiting for '${timeInSeconds}' seconds.`)

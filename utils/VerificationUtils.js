@@ -13,7 +13,7 @@ class VerificationUtils{
      * 
      * @example
      * // Example usage:
-     * await verificationUtils.elementContainsText(page.locator('h1'), 'Hello, World!');
+     * verificationUtils.elementContainsText(page.locator('h1'), 'Hello, World!');
      */
     async elementContainsText(targetElement, expectedText){
         console.log(`Asserts that an element contains the expected text '${expectedText}'.`)
@@ -27,7 +27,7 @@ class VerificationUtils{
      * 
      * @example
      * // Example usage:
-     * await verificationUtils.elementHasText(page.locator('p'), 'This is a paragraph.');
+     * verificationUtils.elementHasText(page.locator('p'), 'This is a paragraph.');
      */
     async elementHasText(targetElement, expectedText){
         console.log(`Asserts that an element has the expected text '${expectedText}'.`)
@@ -41,7 +41,7 @@ class VerificationUtils{
      *  
      * @example
      * // Example usage:
-     * await verificationUtils.elementIsVisible(page.locator('#submit-button'), 'Submit Button');
+     * verificationUtils.elementIsVisible(page.locator('#submit-button'), 'Submit Button');
      *
      */
     async elementIsVisible(targetElement, targetElementName){
@@ -56,7 +56,7 @@ class VerificationUtils{
      *  
      * @example
      * // Example usage:
-     * await verificationUtils.elementIsNotVisible(page.locator('#submit-button'), 'Submit Button');
+     * verificationUtils.elementIsNotVisible(page.locator('#submit-button'), 'Submit Button');
      *
      */
     async elementIsNotVisible(targetElement, targetElementName){
@@ -72,7 +72,7 @@ class VerificationUtils{
      *  
      * @example
      * // Example usage:
-     * await verificationUtils.elementsCount(page.locator('#submit-button'), 'Submit Button', 2);
+     * verificationUtils.elementsCount(page.locator('#submit-button'), 'Submit Button', 2);
      *
      */
     async elementsCount(targetElement, targetElementName, expectedCount){
@@ -94,7 +94,7 @@ class VerificationUtils{
      * 
      *  * @example
      * // Example usage:
-     * await verificationUtils.elementHasAttributeAndHasValue(
+     * verificationUtils.elementHasAttributeAndHasValue(
      *     page.locator('input[type="text"]'),
      *     'Text Input',
      *     'placeholder',
@@ -114,7 +114,7 @@ class VerificationUtils{
      * 
      * @example
      * // Example usage:
-     * await verificationUtils.pageContainsUrl(page, 'example');
+     * verificationUtils.pageContainsUrl(page, 'example');
      */
     async pageContainsUrl(page, expectedUrl){    
         const currentPageTitle = await page.url()       
@@ -130,7 +130,7 @@ class VerificationUtils{
      *
      * @example
      * // Example usage:
-     * await verificationUtils.pageHasUrl(page, 'https://example.com');
+     * verificationUtils.pageHasUrl(page, 'https://example.com');
      */
     async pageHasUrl(page, expectedUrl){
         console.log(`Asserts that the current page URL matches the expected substring '${expectedUrl}'.`)
@@ -145,7 +145,7 @@ class VerificationUtils{
      *
      * @example
      * // Example usage:
-     * await verificationUtils.pageContainsTitle(page, 'Example Title');
+     * verificationUtils.pageContainsTitle(page, 'Example Title');
      */
     async pageContainsTitle(page, expectedTitle){    
         const currentPageTitle = await page.title()    
@@ -161,7 +161,7 @@ class VerificationUtils{
      *
      * @example
      * // Example usage:
-     * await verificationUtils.pageHasTitle(page, 'Example Title');
+     * verificationUtils.pageHasTitle(page, 'Example Title');
      */
     async pageHasTitle(page, expectedTitle){        
         console.log(`Asserts that the current page Title matches the expected substring '${expectedTitle}'.`)
