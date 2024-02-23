@@ -45,7 +45,7 @@ jobs:
         run: npx playwright install --with-deps
 
       # Step 5: Run Playwright tests on Chrome browser
-      - name: Run Playwright UI tests
+      - name: Run Playwright UI tests on Chrome browser
         run: npm run tests:CHROME:HEADLESS
 
       # Step 6: Upload Playwright test report as an artifact

@@ -25,7 +25,7 @@ class BasePage{
      * Fills a text box with the provided value.
      * @param {ElementHandle} element - The text box element to fill.
      * @param {string} value - The value to fill in the text box.
-     * @param {string} textbox_name - The name or description of the text box.
+     * @param {string} textboxName - The name or description of the text box.
      * @returns {Promise<void>} - A Promise that resolves when the fill operation is completed.
      * 
      * @example
@@ -33,8 +33,8 @@ class BasePage{
      * const usernameInput = //... obtain the ElementHandle for the username input.
      * await basePage.fillTextBox(usernameInput, 'testuser', 'Username Input');
      */
-    async fillTextBox(element, value, textbox_name){
-        console.log(`Filling '${value}' in '${textbox_name}' textbox.`);
+    async fillTextBox(element, value, textboxName){
+        console.log(`Filling '${value}' in '${textboxName}' textbox.`);
         await element.fill(value);
     }
 

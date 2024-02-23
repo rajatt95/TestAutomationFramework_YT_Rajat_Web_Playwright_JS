@@ -117,9 +117,9 @@ class VerificationUtils{
      * verificationUtils.pageContainsUrl(page, 'example');
      */
     async pageContainsUrl(page, expectedUrl){    
-        const currentPageTitle = await page.url()       
-        console.log(`Asserts that the current page URL '${currentPageTitle}' contains the expected substring '${expectedUrl}'.`)
-        expect(currentPageTitle).toContain(expectedUrl);
+        const currentPageUrl = await page.url()       
+        console.log(`Asserts that the current page URL '${currentPageUrl}' contains the expected substring '${expectedUrl}'.`)
+        expect(currentPageUrl).toContain(expectedUrl);
     }
 
     /**

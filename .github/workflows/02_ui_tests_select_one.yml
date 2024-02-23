@@ -19,6 +19,7 @@ on:
         required: true
         default: 'CHROME'
         type: choice
+
 jobs:
 
   # Job for running Playwright tests
@@ -50,7 +51,7 @@ jobs:
         run: npx playwright install --with-deps
 
       # Step 5: Run Playwright tests on selected browser
-      - name: Run Playwright UI tests
+      - name: Run Playwright UI tests on selected browser
         run: npm run tests:${{ github.event.inputs.browser }}:HEADLESS
       
       # Step 6: Upload Playwright test report as an artifact
