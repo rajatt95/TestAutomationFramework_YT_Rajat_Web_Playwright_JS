@@ -107,6 +107,28 @@ class VerificationUtils{
     }
 
     /**
+     * Asserts that an element has a specific CSS property with the expected value.
+     *
+     * @param {ElementHandle} targetElement - The target element to check.
+     * @param {string} targetElementName - The name or identifier of the target element.
+     * @param {string} property - The CSS property to check.
+     * @param {string} propertyValue - The expected value of the CSS property.
+     * 
+     * @example
+     * // Example usage:
+     * await verificationUtils.elementHasCSSPropertyAndHasValue(
+     *   page.locator('div'),
+     *   'Div Element',
+     *   'color',
+     *   'red'
+     * );
+     */
+    async elementHasCSSPropertyAndHasValue(targetElement, targetElementName, property, propertyValue){
+        console.log(`Asserts that '${targetElementName}' has a specific CSS property '${property}' with the expected value '${propertyValue}'.`)
+        expect(await (targetElement)).toHaveCSS(property, propertyValue)
+    }
+
+    /**
      * Asserts that the current page URL contains the expected substring.
      * @param {Page} page - The Playwright page object.
      * @param {string} expectedUrl - The substring to check for in the page URL.

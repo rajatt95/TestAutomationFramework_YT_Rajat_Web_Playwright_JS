@@ -42,7 +42,13 @@ test.describe('[Components]', () => {
     
     // Verify the cart icon on the header
     verificationUtils.elementIsVisible(components.header_icon_cart, "Header: Cart icon")
-      
+    
+    // Verify the CSS Property of the logo
+    verificationUtils.elementHasCSSPropertyAndHasValue(components.header_logo_swag_labs, "Header: Swag Labs", "font-size","24px")
+    // verificationUtils.elementHasCSSPropertyAndHasValue(components.header_logo_swag_labs, "Header: Swag Labs", "font-family",'"DM Mono", "sans-serif"')
+    verificationUtils.elementHasCSSPropertyAndHasValue(components.header_logo_swag_labs, "Header: Swag Labs", "color","rgb(19, 35, 34)")
+    
+
   });  
   
   
@@ -161,7 +167,7 @@ test.describe('[Components]', () => {
     // Verify About Link in Side-Panel
     await components.click_side_panel_link_about()
     
-    // VerifY Page URL and Title
+    // Verify Page URL and Title
     verificationUtils.pageHasTitle(page, 'Sauce Labs: Cross Browser Testing, Selenium Testing & Mobile Testing')
     verificationUtils.pageHasUrl(page, 'https://saucelabs.com/') 
 
