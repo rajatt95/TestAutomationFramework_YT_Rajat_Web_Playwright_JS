@@ -39,7 +39,7 @@
 - [Contacts](#contacts)
 
 ## 📖 Introduction
-This repository contains a Test Automation Framework built using Playwright and Javascript for automated testing of web applications.
+This repository contains a **Test Automation Framework** built using **Playwright** and **Javascript** for automated testing of **web applications**.
 
 <!-- ## 🎥 Video Tutorial
 
@@ -54,19 +54,19 @@ Click on the image above to watch the tutorials. -->
 
 ## ▶️ Getting Started
 
-1. Clone the repository:
+1. **Clone the repository:**
 
    ```bash
    git clone https://github.com/rajatt95/TestAutomationFramework_YT_Rajat_Web_Playwright_JS.git
    ```
 
-2. Navigate to the project directory:
+2. **Navigate to the project directory:**
 
    ```bash
    cd TestAutomationFramework_YT_Rajat_Web_Playwright_JS
    ```
 
-3. Install dependencies:
+3. **Install dependencies:**
 
    ```bash
    npm install
@@ -74,12 +74,22 @@ Click on the image above to watch the tutorials. -->
 
 ## 🚀 Running Tests
 
-- Playwright UI mode:
+- **Playwright UI mode:**
 
   ```bash
   npm run tests:ui-mode
   ```
-- Execution in different browsers:
+- **Playwright Debug mode:**
+
+  ```bash
+  npm run tests:debug
+  ```
+- **Playwright Codegen:**
+
+  ```bash
+  npm run playwright:codegen
+  ```
+- **Execution in different browsers:**
 
   - [![Chrome](https://img.shields.io/badge/Chrome-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)](https://www.google.com/chrome/)
 [![Edge](https://img.shields.io/badge/Edge-0078D7?style=for-the-badge&logo=microsoft-edge&logoColor=white)](https://www.microsoft.com/edge/)[![Firefox](https://img.shields.io/badge/Firefox-FF7139?style=for-the-badge&logo=firefox&logoColor=white)](https://www.mozilla.org/firefox/)
@@ -116,7 +126,7 @@ The tests follow a modular and maintainable structure:
 |-- .github
 |     |-- workflows
 |          |-- 01_ui_tests_chrome.yml
-|          |-- 02_ui_tests_select_one.yml.yml
+|          |-- 02_ui_tests_select_one.yml
 |          |-- 03_ui_tests_ALL.yml
 |-- pages
 |     |-- BasePage.js
