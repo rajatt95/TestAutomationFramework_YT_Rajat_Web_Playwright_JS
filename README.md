@@ -66,11 +66,15 @@ Click on the image above to watch the tutorials. -->
    cd TestAutomationFramework_YT_Rajat_Web_Playwright_JS
    ```
 
-3. **Install dependencies:**
-
-   ```bash
-   npm install
-   ```
+3. **To detect latest versions:**
+  ```bash
+  npx npm-check-updates
+  ```
+4. **To upgrade package.json to latest versions:**
+  ```bash
+  npx npm-check-updates -u
+  npm install
+  ```
 
 ## 🚀 Running Tests
 
@@ -82,7 +86,7 @@ Click on the image above to watch the tutorials. -->
 - **Playwright Debug mode:**
 
   ```bash
-  npm run tests:debug
+  npm run tests:debug-mode
   ```
 - **Playwright Codegen:**
 

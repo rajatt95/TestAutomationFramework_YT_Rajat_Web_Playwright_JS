@@ -21,7 +21,7 @@ class WaitUtils{
 }
 
 /**
- * Exports the Waits class as the default export of this module.
+ * Exports the WaitUtils class as the default export of this module.
  * @module WaitUtils
  */
 export default new WaitUtils;

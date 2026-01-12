@@ -4,10 +4,10 @@
   "description": "This project is a Test Automation Framework built using Playwright and Javascript for automated testing of web applications.",
   "main": "index.js",
   "scripts": {
+
     "playwright:codegen": "npx playwright codegen",
-    
     "playwright:tests": "npx playwright test --headed",
-    
+
     "tests:ALL": "npx playwright test --headed",
     "tests:WEBKIT": "npx playwright test --project=webkit --headed",
     "tests:CHROMIUM": "npx playwright test --project=chromium --headed",
@@ -23,19 +23,23 @@
     "tests:CHROME:HEADLESS": "npx playwright test --project='Google Chrome'",
 
     "tests:ui-mode": "npx playwright test --ui",
-    "tests:debug": "npx playwright test --debug",
+    "tests:debug-mode": "npx playwright test --debug",
     "tests:show:reports-html": "npx playwright show-report",
 
     "tests:CHROME:Tag:SANITY": "npx playwright test --project='Google Chrome' --grep=@sanity",
-    "tests:CHROME:Tag:REGRESSION": "npx playwright test --project='Google Chrome' --grep=@regression"
-    
-  },
+    "tests:CHROME:Tag:REGRESSION": "npx playwright test --project='Google Chrome' --grep=@regression",
 
+    "tests:CHROME:Tag:BVT": "npx playwright test --project='Google Chrome' --grep=@bvt",
+    "tests:CHROME:Tag:EXCEPT_BVT": "npx playwright test --project='Google Chrome' --grep-invert=@bvt",
+    "tests:CHROME:Tag:SANITY_OR_BVT": "npx playwright test --project='Google Chrome' --grep='@(sanity|bvt)'",
+    "tests:CHROME:Tag:SANITY_AND_BVT": "npx playwright test --project='Google Chrome' --grep='@sanity.*@bvt|@bvt.*@sanity'"
+
+  },
   "keywords": [],
   "author": "Rajat Verma",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.41.1",
-    "@types/node": "^20.11.7"
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^25.0.6"
   }
 }

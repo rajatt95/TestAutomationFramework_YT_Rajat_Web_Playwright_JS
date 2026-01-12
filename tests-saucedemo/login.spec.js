@@ -8,6 +8,7 @@ import Components from '../pages/Components';
 
 // Importing utilities
 import verificationUtils from '../utils/VerificationUtils';
+import tagUtils from '../utils/TagUtils';
 
 // Loading login credentials from JSON file
 const loginCredentials = require('../test-data/login_credentials.json');  
@@ -33,9 +34,9 @@ test.describe('[Login]', () => {
 
   /**
    * Test case: Login with valid credentials. Validate that User is able to login using valid credentials.
-   * @tags {regression, sanity}
+   * @tags {regression, sanity, bvt}
    */
-  test('Login with valid credentials. Validate that User is able to login using valid credentials. @regression @sanity', async ({ page }) => {
+  test('Login with valid credentials. Validate that User is able to login using valid credentials.', {tag: [tagUtils.REGRESSION, tagUtils.SANITY, tagUtils.BVT ]}, async ({ page }) => {
    
     // Fill valid credentials and Login 
     const loginPage = new LoginPage(page)
@@ -64,9 +65,9 @@ test.describe('[Login]', () => {
   
   /**
    * Test case: Login with invalid credentials. Validate that User is unable to login using invalid credentials.
-   * @tags {regression}
+   * @tags {regression, sanity}
    */
-  test('Login with invalid credentials. Validate that User is unable to login using invalid credentials. @regression', async ({ page }) => {
+  test('Login with invalid credentials. Validate that User is unable to login using invalid credentials.', {tag: [tagUtils.REGRESSION, tagUtils.SANITY ]}, async ({ page }) => {
       
     // Fill invalid credentials and Login 
     const loginPage = new LoginPage(page)
@@ -78,4 +79,3 @@ test.describe('[Login]', () => {
     
 
 });
-

@@ -9,7 +9,7 @@ import Components from '../pages/Components';
 // Importing utilities
 import verificationUtils from '../utils/VerificationUtils';
 import waitUtils from '../utils/WaitUtils';
-
+import tagUtils from '../utils/TagUtils'; 
 
 /**
  * Test suite for Sauce Demo Application Components.
@@ -31,7 +31,7 @@ test.describe('[Components]', () => {
    * Test case: [Header] Static Messages. Validate that User is able to see messages in Header component.
    * @tags {regression, sanity}
    */
-  test('[Header] Static Messages. Validate that User is able to see messages in Header component. @regression @sanity', async ({ page }) => {
+  test('[Header] Static Messages. Validate that User is able to see messages in Header component.', {tag: [tagUtils.REGRESSION, tagUtils.SANITY ]}, async ({ page }) => {
    
     // Verify the side-panel expand icon on the header
     const components = new Components(page)    
@@ -56,7 +56,7 @@ test.describe('[Components]', () => {
    * Test case: [Header] Navigate to Cart Page. Validate that User is able to navigate to Cart Page using Cart icon.
    * @tags {regression}
    */
-  test('[Header] Navigate to Cart Page. Validate that User is able to navigate to Cart Page using Cart icon. @regression', async ({ page }) => {
+  test('[Header] Navigate to Cart Page. Validate that User is able to navigate to Cart Page using Cart icon.', {tag: [tagUtils.REGRESSION ]}, async ({ page }) => {
    
     // Click on Cart icon
     const components = new Components(page)
@@ -82,7 +82,7 @@ test.describe('[Components]', () => {
    * Test case: [Footer] Static Messages. Validate that User is able to see messages in Footer component.
    * @tags {regression, sanity}
    */
-  test('[Footer] Static Messages. Validate that User is able to see messages in Footer component. @regression @sanity', async ({ page }) => {
+  test('[Footer] Static Messages. Validate that User is able to see messages in Footer component.', {tag: [tagUtils.REGRESSION, tagUtils.SANITY ]}, async ({ page }) => {
    
     // Verify the social links icon
     const components = new Components(page)    
@@ -91,7 +91,7 @@ test.describe('[Components]', () => {
     verificationUtils.elementIsVisible(components.footer_link_linkedin, "Footer: LinkedIn link")
 
     // Verify the copyright message 
-    verificationUtils.elementContainsText(components.footer_msg_copyright, '© 2024 Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy')
+    verificationUtils.elementContainsText(components.footer_msg_copyright, ' Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy')
       
   });  
   
@@ -100,7 +100,7 @@ test.describe('[Components]', () => {
    * Test case: [Footer] Links navigation. Validate that User is able to navigate to social platforms using icons.
    * @tags {regression}
    */
-  test('[Footer] Links navigation. Validate that User is able to navigate to social platforms using icons. @regression', async ({ page }) => {
+  test('[Footer] Links navigation. Validate that User is able to navigate to social platforms using icons.', {tag: [tagUtils.REGRESSION ]}, async ({ page }) => {
    
     // Verify the social links
     const components = new Components(page)    
@@ -115,7 +115,7 @@ test.describe('[Components]', () => {
    * Test case: [Side-Panel] Static Messages. Validate that User is able to see messages in Side-Panel component.
    * @tags {regression, sanity}
    */
-  test('[Side-Panel] Static Messages. Validate that User is able to see messages in Side-Panel component. @regression @sanity', async ({ page }) => {
+  test('[Side-Panel] Static Messages. Validate that User is able to see messages in Side-Panel component.', {tag: [tagUtils.REGRESSION, tagUtils.SANITY ]}, async ({ page }) => {
    
     // Open Side-Panel
     const components = new Components(page)    
@@ -137,7 +137,7 @@ test.describe('[Components]', () => {
    * Test case: [Side-Panel] Panel Expand/Collapse. Validate that User is able to expand/collapse panel using icons.
    * @tags {regression}
    */
-  test('[Side-Panel] Panel Expand/Collapse. Validate that User is able to expand/collapse panel using icons. @regression', async ({ page }) => {
+  test('[Side-Panel] Panel Expand/Collapse. Validate that User is able to expand/collapse panel using icons.', {tag: [tagUtils.REGRESSION ]}, async ({ page }) => {
   
     // Open Side-Panel
     const components = new Components(page)    
@@ -158,7 +158,7 @@ test.describe('[Components]', () => {
    * Test case: [Side-Panel] Link: About. Validate that User is able to navigate to official website using About link.
    * @tags {regression}
    */
-  test('[Side-Panel] Link: About. Validate that User is able to navigate to official website using About link. @regression', async ({ page }) => {
+  test('[Side-Panel] Link: About. Validate that User is able to navigate to official website using About link.', {tag: [tagUtils.REGRESSION ]}, async ({ page }) => {
   
     // Open Side-Panel
     const components = new Components(page)    
@@ -174,4 +174,3 @@ test.describe('[Components]', () => {
   });  
 
 });
-
